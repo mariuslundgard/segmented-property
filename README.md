@@ -16,7 +16,7 @@ npm install segmented-property
 
 ## Motivation
 
-Inspired by `@yr/property`, however, I needed something even simpler/smaller.
+Inspired by [`@yr/property`](https://github.com/yr/property), however, I needed something even simpler/smaller.
 
 ## Usage
 
