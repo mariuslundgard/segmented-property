@@ -20,18 +20,6 @@ Inspired by `@yr/property`, however, I needed something even simpler/smaller.
 
 ## Usage
 
-### `get(source, [key])`
-
-```js
-import {get} from 'segmented-property'
-
-const obj = {foo: {bar: 1}}
-
-console.log(get(obj, 'foo/bar')) // 1
-```
-
-### `set(source, [key], value)`
-
 ```js
 import {get, set} from 'segmented-property'
 
@@ -41,3 +29,13 @@ const obj2 = set(obj1, 'foo/bar', 2)
 console.log(get(obj1, 'foo/bar')) // 1
 console.log(get(obj2, 'foo/bar')) // 2
 ```
+
+## API
+
+#### `get(source, [key])`
+
+Gets a value.
+
+#### `set(source, [key], value)`
+
+Sets a new value and returns a new object.
