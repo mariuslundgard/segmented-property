@@ -26,6 +26,8 @@ describe('segmented-property', () => {
     it('should not mutate', () => {
       const obj1 = {foo: {bar: 1}}
       const obj2 = property.set(obj1, 'foo/bar', 2)
+      assert.equal(obj1.foo.bar, 1)
+      assert.equal(obj2.foo.bar, 2)
       assert.notEqual(obj1, obj2)
       assert.notEqual(obj1.foo, obj2.foo)
       assert.notEqual(obj1.foo.bar, obj2.foo.bar)
@@ -34,6 +36,8 @@ describe('segmented-property', () => {
     it('should only create new objects for changed paths', () => {
       const obj1 = {foo: {bar: {value: 1}, baz: {value: 1}}}
       const obj2 = property.set(obj1, 'foo/bar/value', 2)
+      assert.equal(obj1.foo.bar.value, 1)
+      assert.equal(obj2.foo.bar.value, 2)
       assert.notEqual(obj1, obj2)
       assert.notEqual(obj1.foo, obj2.foo)
       assert.notEqual(obj1.foo.bar, obj2.foo.bar)
@@ -49,7 +53,7 @@ describe('segmented-property', () => {
     it('should not create new object if nothing was changed', () => {
       const obj1 = {foo: {bar: 1}}
       const obj2 = property.set(obj1, 'foo/bar', 1)
-
+      assert.equal(obj1.foo.bar, 1)
       assert.equal(obj1, obj2)
     })
   })
