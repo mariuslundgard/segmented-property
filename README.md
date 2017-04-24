@@ -12,7 +12,7 @@ npm install segmented-property
 ## Features
 
 * Immutable. Doesn't modify source objects, but adheres to the principle of [persistent data structures](https://en.wikipedia.org/wiki/Persistent_data_structure).
-* Path-base. Set nested properties using e.g. `foo/bar/baz`.
+* Path-based. Set nested properties using e.g. `foo/bar/baz`.
 
 ## Motivation
 
