@@ -1,17 +1,17 @@
-'use strict'
-
-const getByPath = (source, path) => {
+function getByPath(source: any, path: string[]): any {
   const prop = path.shift()
 
-  if (path.length)
+  if (path.length) {
     return getByPath(source[prop], path)
+  }
 
   return source[prop]
 }
 
-module.exports = function get (source, key) {
-  if (!key)
+export function get(source: any, key?: string) {
+  if (!key) {
     return source
+  }
 
   return getByPath(source, key.split('/'))
 }
