@@ -1,6 +1,6 @@
 # segmented-property
 
-A utility for immutabbly setting and getting properties on JavaScript objects as slash-delimited paths.
+A utility for immutably setting and getting properties on JavaScript objects as slash-delimited paths.
 
 ```sh
 npm install segmented-property
