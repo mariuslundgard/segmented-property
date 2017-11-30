@@ -17,8 +17,8 @@
     "precommit": "npm run build && npm run lint && npm run test",
     "prepublishOnly": "npm run build",
     "test": "jest --coverage",
-    "tsc-commonjs": "tsc -p tsconfig.commonjs.json",
-    "tsc-module": "tsc -p tsconfig.module.json"
+    "tsc-commonjs": "tsc -p .tsconfig/commonjs.json",
+    "tsc-module": "tsc -p .tsconfig/module.json"
   },
   "devDependencies": {
     "@types/jest": "^21.1.8",
