@@ -50,4 +50,10 @@ describe('segmented-property/set', () => {
     expect(arr2).toHaveLength(3)
     expect(arr2[1].id).toEqual(4)
   })
+
+  it('should', () => {
+    const a = {}
+    const b = property.set(a, 'foo/bar/baz', 'test')
+    expect(b).toEqual({foo: {bar: {baz: 'test'}}})
+  })
 })

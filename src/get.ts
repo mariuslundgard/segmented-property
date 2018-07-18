@@ -1,4 +1,8 @@
 function getByPath(source: any, path: string[]): any {
+  if (!source) {
+    return undefined
+  }
+
   const prop = path.shift()
 
   if (path.length) {

@@ -20,6 +20,10 @@ export function set(source: any, key: string, value: any) {
     const prop = path.shift()
 
     if (path.length) {
+      if (!currSource[prop]) {
+        currSource[prop] = {}
+      }
+
       currSource = currSource[prop]
       currTarget[prop] = shallowClone(currSource)
       currTarget = currTarget[prop]
