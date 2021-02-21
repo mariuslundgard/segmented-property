@@ -1,9 +1,0 @@
-.DS_Store
-/.coveralls.yml
-/.editorconfig
-/.travis.yml
-/coverage
-/node_modules
-/src
-/tsconfig.*
-/tslint.json
