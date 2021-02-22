@@ -12,7 +12,7 @@ function getByPath(source: Record<string, unknown> | Array<unknown>, path: strin
   const prop = path.shift()
   const value = getProperty(source, prop)
 
-  if (path.length && isRecord(value)) {
+  if (path.length && (isRecord(value) || isArray(value))) {
     return getByPath(value, path)
   }
 
