@@ -59,10 +59,17 @@ describe('segmented-property/set', () => {
     expect(arr2[1].id).toEqual(4)
   })
 
-  it('should', () => {
+  it('should create objects if they do not exist', () => {
     const a = {}
     const b = property.set(a, 'foo/bar/baz', 'test')
 
     expect(b).toEqual({foo: {bar: {baz: 'test'}}})
+  })
+
+  it('should set property in a deeply nested aarray', () => {
+    const a = [[[0]]]
+    const b = property.set(a, '0/0/0', 2)
+
+    expect(b).toEqual([[[2]]])
   })
 })
