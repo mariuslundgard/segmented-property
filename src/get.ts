@@ -1,28 +1,37 @@
-import {isArray, isRecord} from './helpers'
+import {_isArray, _isRecord} from './helpers'
 
-export function getProperty(source: Record<string, unknown> | Array<unknown>, prop: string): unknown {
-  return isArray(source) ? source[Number(prop)] : source[prop]
+/**
+ * @internal
+ */
+export function _getProperty(source: Record<string, unknown> | Array<unknown>, prop: string): unknown {
+  return _isArray(source) ? source[Number(prop)] : source[prop]
 }
 
-function getByPath(source: Record<string, unknown> | Array<unknown>, path: string[]): unknown {
+/**
+ * @internal
+ */
+function _getByPath(source: Record<string, unknown> | Array<unknown>, path: string[]): unknown {
   if (!source) {
     return undefined
   }
 
   const prop = path.shift()
-  const value = getProperty(source, prop)
+  const value = _getProperty(source, prop)
 
-  if (path.length && (isArray(value) || isRecord(value))) {
-    return getByPath(value, path)
+  if (path.length && (_isArray(value) || _isRecord(value))) {
+    return _getByPath(value, path)
   }
 
   return value
 }
 
+/**
+ * @public
+ */
 export function get(source: Record<string, unknown> | Array<unknown>, key?: string): unknown {
   if (!key) {
     return source
   }
 
-  return getByPath(source, key.split('/'))
+  return _getByPath(source, key.split('/'))
 }
