@@ -4,15 +4,15 @@
   "description": "A utility for immutably setting and getting properties on JavaScript objects as slash-delimited paths.",
   "author": "Marius Lundgård <studio@mariuslundgard.com>",
   "license": "MIT",
-  "main": "./dist/commonjs/index.js",
-  "module": "./dist/module/index.js",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/es/index.js",
   "files": [
     "/dist"
   ],
   "scripts": {
     "build": "run-p build:*",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
-    "build:es": "tsc -p tsconfig.es.json",
+    "build:cjs": "tsc --module commonjs --outDir ./dist/cjs -p tsconfig.build.json",
+    "build:es": "tsc --module es6 --outDir ./dist/es -p tsconfig.build.json",
     "clean": "rimraf dist",
     "lint": "eslint . --ext .js,.ts",
     "postinstall": "yarn husky install",
