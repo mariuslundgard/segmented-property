@@ -1,4 +1,4 @@
-import {isArray, isRecord} from './utils'
+import {isArray, isRecord} from './helpers'
 
 export function getProperty(source: Record<string, unknown> | Array<unknown>, prop: string): unknown {
   return isArray(source) ? source[Number(prop)] : source[prop]

@@ -1,5 +1,5 @@
 import {get, getProperty} from './get'
-import {isArray, isRecord, shallowClone} from './utils'
+import {isArray, isRecord, shallowClone} from './helpers'
 
 export function setProperty(source: Record<string, unknown> | Array<unknown>, prop: string, value: unknown): void {
   if (isArray(source)) {
