@@ -58,14 +58,20 @@ export function _isRecord(value: unknown): value is Record<string, unknown> {
 /**
  * @internal
  */
-export function _setProperty(source: Record<string, unknown> | Array<unknown>, prop: string, value: unknown): void {
-  if (_isArray(source)) {
-    source[Number(prop)] = value
+export function _setProperty(target: Record<string, unknown> | Array<unknown>, prop: string, value: unknown): void {
+  if (_isArray(target)) {
+    target[Number(prop)] = value
+
+    return
   }
 
-  if (_isRecord(source)) {
-    source[prop] = value
+  if (_isRecord(target)) {
+    target[prop] = value
+
+    return
   }
+
+  throw new Error('shallowClone: target must be an object or an array')
 }
 
 /**
