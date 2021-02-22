@@ -2,10 +2,9 @@
   "extends": "./tsconfig.settings.json",
   "compilerOptions": {
     "moduleResolution": "node",
-    "module": "es6",
     "target": "es5",
     "declaration": true,
-    "outDir": "./dist/module"
+    "outDir": "./dist"
   },
   "files": ["./src/index.ts"]
 }
