@@ -17,7 +17,7 @@ export function set(
   value: unknown
 ): Record<string, unknown> | Array<unknown> {
   if (!key) {
-    if (isRecord(value) || Array.isArray(value)) {
+    if (isArray(value) || isRecord(value)) {
       return value
     }
 
@@ -45,7 +45,7 @@ export function set(
         setProperty(currSource, prop, nextSource)
       }
 
-      if (!isRecord(nextSource) && !isArray(nextSource)) {
+      if (!isArray(nextSource) && !isRecord(nextSource)) {
         throw new Error(`set: path is not targeting an object nor an array: "${key}"`)
       }
 
