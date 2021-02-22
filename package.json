@@ -1,6 +1,6 @@
 {
   "name": "segmented-property",
-  "version": "2.0.4",
+  "version": "3.0.3",
   "description": "A utility for immutably setting and getting properties on JavaScript objects as slash-delimited paths.",
   "author": "Marius Lundgård <studio@mariuslundgard.com>",
   "license": "MIT",
