@@ -1,18 +1,5 @@
-import {get, _getProperty} from './get'
-import {_isArray, _isRecord, _shallowClone} from './helpers'
-
-/**
- * @internal
- */
-export function _setProperty(source: Record<string, unknown> | Array<unknown>, prop: string, value: unknown): void {
-  if (_isArray(source)) {
-    source[Number(prop)] = value
-  }
-
-  if (_isRecord(source)) {
-    source[prop] = value
-  }
-}
+import {get} from './get'
+import {_getProperty, _isArray, _isRecord, _setProperty, _shallowClone} from './helpers'
 
 /**
  * @public

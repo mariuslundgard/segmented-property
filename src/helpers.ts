@@ -19,6 +19,31 @@ export function _basicAssign(
 /**
  * @internal
  */
+export function _getProperty(source: Record<string, unknown> | Array<unknown>, prop: string): unknown {
+  return _isArray(source) ? source[Number(prop)] : source[prop]
+}
+
+/**
+ * @internal
+ */
+export function _getByPath(source: Record<string, unknown> | Array<unknown>, path: string[]): unknown {
+  if (!source) {
+    return undefined
+  }
+
+  const prop = path.shift()
+  const value = _getProperty(source, prop)
+
+  if (path.length && (_isArray(value) || _isRecord(value))) {
+    return _getByPath(value, path)
+  }
+
+  return value
+}
+
+/**
+ * @internal
+ */
 export function _isArray(value: unknown): value is Array<unknown> {
   return Array.isArray(value)
 }
@@ -28,6 +53,19 @@ export function _isArray(value: unknown): value is Array<unknown> {
  */
 export function _isRecord(value: unknown): value is Record<string, unknown> {
   return value && typeof value === 'object'
+}
+
+/**
+ * @internal
+ */
+export function _setProperty(source: Record<string, unknown> | Array<unknown>, prop: string, value: unknown): void {
+  if (_isArray(source)) {
+    source[Number(prop)] = value
+  }
+
+  if (_isRecord(source)) {
+    source[prop] = value
+  }
 }
 
 /**
