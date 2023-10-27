@@ -6,8 +6,8 @@ import {_getProperty, _isArray, _isRecord, _setProperty, _shallowClone} from './
  */
 export function set(
   source: Record<string, unknown> | Array<unknown>,
-  key: string,
-  value: unknown
+  key: string | null | undefined,
+  value: unknown,
 ): Record<string, unknown> | Array<unknown> {
   if (!key) {
     if (_isArray(value) || _isRecord(value)) {
@@ -29,6 +29,10 @@ export function set(
 
   while (path.length) {
     const prop = path.shift()
+
+    if (!prop) {
+      return target
+    }
 
     if (path.length) {
       let nextSource = _getProperty(currSource, prop)
