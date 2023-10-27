@@ -1,12 +1,10 @@
 {
   "extends": "./tsconfig.settings",
-  "include": ["./**/*.cjs", "./**/*.ts"],
-  "exclude": ["./node_modules"],
+  "include": ["./src"],
+  "exclude": ["./src/**/*.test.ts"],
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "./dist",
-    "noEmit": true,
-    "allowJs": true,
     "resolveJsonModule": true
   }
 }
